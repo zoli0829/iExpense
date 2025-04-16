@@ -55,7 +55,12 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        Text(item.amount, format: .currency(code: "EUR"))
+                        // Challenge 1
+                        // use the user's preferred currency, rather than always using US dollars
+                        Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "EUR"))
+                        // Challenge 2
+                        // modify the style based on the amount
+                            .foregroundColor(item.amount < 10 ? .green : (item.amount < 100 ? .orange : .red))
                     }
                 }
                 .onDelete(perform: removeItems)
@@ -75,6 +80,10 @@ struct ContentView: View {
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
     }
+    
+    // Challenge 3
+    // split the expenses into 2 sections one for personal and one for business
+    // TODO: This challenge
 }
 
 #Preview {
