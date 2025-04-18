@@ -39,8 +39,6 @@ class Expenses {
 struct ContentView: View {
     @State private var expenses = Expenses()
     
-    @State private var showingAddExpense = false
-    
     var body: some View {
         NavigationStack {
             List {
@@ -65,14 +63,16 @@ struct ContentView: View {
                 }
                 .onDelete(perform: removeItems)
             }
+            // Challenge 1: use navigation link instead of a sheet
             .navigationTitle("iExpense")
             .toolbar {
-                Button("Add expense", systemImage: "plus") {
-                    showingAddExpense = true
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        AddView(expenses: expenses)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
                 }
-            }
-            .sheet(isPresented: $showingAddExpense) {
-                AddView(expenses: expenses)
             }
         }
     }

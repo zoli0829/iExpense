@@ -13,6 +13,9 @@ struct AddView: View {
     @State private var name = ""
     @State private var type = ""
     @State private var amount = 0.0
+    @State private var title = "Add new expense"
+    
+    
     
     var expenses: Expenses
     
@@ -31,7 +34,9 @@ struct AddView: View {
                 TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "EUR"))
                     .keyboardType(.decimalPad)
             }
-            .navigationTitle("Add new expense")
+            // Challenge 2: let the user edit their issue name in the navigation title
+            .navigationTitle($title)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("Save") {
                     let item = ExpenseItem(name: name, type: type, amount: amount)
