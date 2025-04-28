@@ -89,3 +89,16 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+
+/*
+ I tried to do the challenge but I fucked it up, and had to revert back to the working state.
+ Challenge
+ One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try extending this app to make sure you fully understand what’s going on.
+
+ All three of these challenges relate to you upgrade project 7, iExpense:
+
+ Start by upgrading it to use SwiftData.
+ Add a customizable sort order option: by name or by amount.
+ Add a filter option to show all expenses, just personal expenses, or just business expenses.
+ */
