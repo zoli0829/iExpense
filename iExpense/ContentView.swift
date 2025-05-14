@@ -50,6 +50,10 @@ struct ContentView: View {
                             
                             Text(item.type)
                         }
+                        //Fix the list rows in iExpense so they read out the name and value in one single VoiceOver label, and their type in a hint.
+                        .accessibilityElement()
+                        .accessibilityLabel("\(item.name), \(item.type)")
+                        .accessibilityHint("\(item.type)")
                         
                         Spacer()
                         
